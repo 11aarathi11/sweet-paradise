@@ -1,0 +1,103 @@
+<div style="text-align:center;"><img style =" width: 18%;"src="logo.jpg"></div>
+<h1 style="font-size:40px; text-align:center;color:black ">SWEET PARADISE</h1>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <style>
+     body {
+             background-color:#fff;
+        }
+        
+        .container {
+            max-width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .signup-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .signup-btn:hover {
+            background-color: #3e8e41;
+        }
+  </style>
+</head>
+<body>
+  <div class="container" style="color:#57362A;">
+    <h2>SIGN UP</h2>
+    <form id="signup-form" action="login.html" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button class="signup-btn" type="submit" style="color:#57362A;background-color:#FDBE02;margin-bottom:15px ;padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; display: block; margin: 0 auto; font-size: 18px; width: 75%; ">Sign Up</button>
+      <div class="login-link" style="text-align:center;">
+        <p>Do you have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('signup-form');
+
+    form.addEventListener('submit', (e) => {
+      // Validate form data here
+      // If valid, let the form submit normally
+      if (form.checkValidity()) {
+        return true;
+      }
+      // If invalid, prevent default behavior
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>

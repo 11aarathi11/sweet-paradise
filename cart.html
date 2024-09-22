@@ -1,0 +1,107 @@
+<div style="text-align:center;"><img style =" width: 20%;"src="logo.jpg"></div>
+
+<div id="contact" style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+  <span style="flex-grow: 1; height: 4px; background-color: #57362A; margin: 0 10px; max-width: 150px;"></span>
+  <span style="z-index: 1; font-size: 30px;">CART</span>
+  <span style="flex-grow: 1; height: 4px; background-color: #57362A; margin: 0 10px; max-width: 150px;"></span>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+	<style>
+		.cart-item img {
+			width: 150px; 
+			height: 150px; 
+			object-fit: cover;
+			margin-bottom: 20px; 
+		}
+		
+		#cart {
+			margin-top: 10px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			width: 1000px;
+			height: 500px;
+			overflow-y: auto;
+			margin-bottom: 20px;
+		}
+		
+		#cart-items {
+			margin-bottom: 40px; 
+			font-size: 20px;
+		}
+		
+		.cart-item {
+			margin-bottom: 40px; 
+		}
+		
+		#total-amount {
+			font-size: 30px;
+			font-weight: bold;
+		}
+		
+		.buy-now {
+			padding: 10px 20px;
+			background-color: #57362A;
+			color: #fdbe02;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.buy-now:hover {
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="cart">
+		<h2 style="font-size:30px">ITEMS</h2>
+		<div id="cart-items"></div>
+		<p id="total-amount">Total: Rs 0</p>
+		<button class="buy-now">Buy Now</button>
+	</div>
+		<script>
+		// Retrieve cart data from local storage
+		const cartData = localStorage.getItem('cartData') ? JSON.parse(localStorage.getItem('cartData')) : [];
+
+		// Get references to HTML elements
+		const cartItemsContainer = document.getElementById('cart-items');
+		const totalAmountElement = document.getElementById('total-amount');
+
+		// Display cart items
+		cartData.forEach(function(item) {
+			const cartItem = document.createElement('div');
+			cartItem.classList.add('cart-item');
+
+			const img = document.createElement('img');
+			img.src = item.productImage;
+
+			const name = document.createElement('p');
+			name.textContent = `${item.productName} - Rs ${item.productPrice}`;
+			name.style.margin = '0';
+
+			cartItem.appendChild(img);
+			cartItem.appendChild(name);
+			cartItemsContainer.appendChild(cartItem);
+		});
+
+		// Calculate and display total amount
+		const totalAmount = cartData.reduce(function(acc, item) {
+			return acc + item.productPrice;
+		}, 0);
+		totalAmountElement.textContent = `Total: Rs ${totalAmount}`;
+	</script>
+</body>
+</html>
+
+	</div>
+<div style="text-align:center;margin-bottom: 50px;">
+<a style="font-size:20px;background-color:#FDBE02;padding: 10px 30px 10px 30px;color: #57362A ;"
+ href="index.html">Home</a></div>
+
+
+</body>
+</html>
